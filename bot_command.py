@@ -2,8 +2,7 @@ import telebot
 from telebot import types
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-tripdate = None
-tripreg = None
+
 def starting(m, res):
         # Добавляем кнопки
         markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -73,6 +72,7 @@ def requests_count(trip):
                         return item[1]
 
 def writing(i, id):
+        print (tripdate, tripreg)
         if tripdate != None:
                 with open(f'data.txt', 'a', encoding='UTF-8') as f:
                         f.write(f'{tripdate} - {i} человек от {id}')
